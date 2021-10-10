@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block style_css %}
+    <link rel="stylesheet" href="{% static 'css/style_index.css' %}">
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+
+{% block content %}
+    <h1>Логин</h1>
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block mt-3">
+            Login
+        </button>
+    </form>
+{% endblock %}

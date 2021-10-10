@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block style_css %}
+    <link rel="stylesheet" href="{% static 'css/style_index.css' %}">
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="h3 bg-info mt-2">Наши адреса в Нижнеудинске :</div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="{% static 'image/good.jpg' %}" alt="" class="img-thumbnail" class="mr-3">
+                <img src="{% static 'image/good_vitr.jpg' %}" alt="" class="img-thumbnail" class="mr-3">
+            </div>
+            <div class="col">
+                <div class="h3 bg-success mt-2">
+        <p class="h4 bg-dark text-white m-2"> район Спутника, магазин Хороший,2 этаж,павильон </p></div>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="{% static 'image/sobol.jpg' %}" alt="" class="img-thumbnail" class="mr-3">
+                <img src="{% static 'image/sobol_vitr.jpg' %}" alt="" class="img-thumbnail" class="mr-3">
+            </div>
+            <div class="col">
+                <div class="h3 bg-success m-2">
+        <p class="h4 bg-dark text-white m-2"> возле рынка, магазин Соболь, 1 этаж,павильон на входе магазина </p></div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

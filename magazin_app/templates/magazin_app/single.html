@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block style_css %}
+    <link rel="stylesheet" href="{% static 'css/style_index.css' %}">
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+
+{% block content %}
+    {#    <div class="row row-cols-3 row-cols-md-3 g-3">#}
+    {#            <div class="col-5 col-md-5 col-sm-5 col-lg-4">#}
+    <div class="card h-60 mt-3 ">
+        <div class="card-header ">
+            {#                    <h3>{{ new.my_func }}</h3>#}
+            <span class="colorr"> Категория: </span> <a
+                href="{{ cart.category.get_absolute_url }}">{{ cart.category }}</a>
+        </div>
+        <div class="card-body">
+            <div class="media">
+                {% if cart.photo %}
+                    <img src="{{ cart.photo.url }}" alt="" width="200" height="200" class="mr-3">
+                {% elif cart.photo_urll %}
+                    <img src="{{ cart.photo_urll }}"
+                         width="360" height="360" class="mr-3">
+                {% else %}
+                    <img src="https://static6.depositphotos.com/1002881/300/i/600/depositphotos_5804811-stock-photo-error-404.jpg"
+                         width="200" height="200" class="mr-3">
+                {% endif %}
+                <div class="media-body">
+                    <p class="card-title text-danger h4">{{ cart.title }}</p>
+                    <p class="card-text text-white">{{ cart.content }}</p>
+                    <br>
+                    <h5 class="colorr">Цена: {{ cart.price }} р.</h5>
+                    <p class="colorr">Остаток: {{ cart.number }}шт </p>
+                    {% if request.user.is_authenticated %}
+                                    <p class="colorr">Опубликованно
+                                        {% if cart.is_published %}
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"/>
+                                            </svg>
+                                        {% else %}
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-square" viewBox="0 0 16 16">
+                                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                            </svg>
+                                        {% endif %}
+                                    </p>
+                                {% endif %}
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'edit' cart.slug %}" class="btn btn-primary mb-2 mt-2"> Редактирование</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {#                    <div class="card-footer text-muted">#}
+        {#                        {{ cart.created_at|date:"Y-m-d H:i" }}#}
+        {#                    </div>#}
+    </div>
+    {#            </div>#}
+    {#    </div>#}
+{% endblock %}
+{#</div>#}

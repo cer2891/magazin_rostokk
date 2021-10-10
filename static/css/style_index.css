@@ -1,0 +1,18 @@
+body{
+    /*background-color: #777777;*/
+    background: url("/static/background/content_bg.png");
+}
+
+.errorlist{
+    color: red;
+}
+
+.card {
+    background: #2c3034;
+}
+
+.colorr{
+    color: #ffffcc;
+}
+
+.card .card-block {max-height:300px;overflow:auto;}

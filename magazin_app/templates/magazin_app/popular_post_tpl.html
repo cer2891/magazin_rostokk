@@ -1,0 +1,17 @@
+<h4 class="alert alert-success mt-3 mb-3 mr-2">Популярное</h4>
+<div class="list-group">
+    {% for cart in carts %}
+        <div class="list-group-item list-group-item-info">
+            {#            {% if cart.photo_urll %}#}
+            {#                <img src="{{ cart.photo_urll }}" alt="{{ cart.title }}" width="250" height="200">#}
+            {#            {% else %}#}
+            {#                <img src="https://static6.depositphotos.com/1002881/300/i/600/depositphotos_5804811-stock-photo-error-404.jpg"#}
+            {#                     width="300" height="200">#}
+            {#            {% endif %}#}
+
+            <h5>{{ forloop.counter }}. <a href="{{ cart.get_absolute_url }}"> {{ cart.title }}</a></h5>
+            {#                <h4>{{ cart.created_at|date:"d.m.Y" }}</h4>#}
+
+        </div>
+    {% endfor %}
+</div>

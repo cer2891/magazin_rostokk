@@ -1,0 +1,10 @@
+<ul class="list-group mt-3">
+{#    <p class="bg-light">{{ arg1 }} {{ arg2 }}</p>#}
+    {% for categor in categories %}
+        <a href="{{ categor.get_absolute_url }}" class="bg-primary text-light list-group-item list-group-item-action">
+            {{ categor.title }}
+        <span class="badge bg-danger rounded-pill">{{ categor.cnt }}</span>
+        </a>
+
+    {% endfor %}
+</ul>

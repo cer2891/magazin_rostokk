@@ -1,0 +1,14 @@
+{% load sidebar %}
+
+{% comment %}
+<ul class="list-group mt-3">
+    {% get_list_categories as categories %}
+    {% for categor in categories %}
+        <a href="{% url 'category' categor.pk %}" class="list-group-item list-group-item-action">{{ categor.title }}</a>
+    {% endfor %}
+</ul>
+
+<br>
+{% endcomment %}
+{% show_categories  %}
+
